@@ -801,7 +801,6 @@
 			$("#hsno").val($(this).attr("href"));
 			$("#f1").attr("action", "/store/view").submit();
 			
-			
 		});
 		$(".pagination li a").on("click", function(e) {
 			
@@ -812,9 +811,6 @@
 			$("#f1").submit();
 			
 		})
-		
-		
-		
 		
 	});
 	

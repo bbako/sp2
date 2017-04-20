@@ -16,27 +16,26 @@ import org.springframework.web.context.WebApplicationContext;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @WebAppConfiguration
-@ContextConfiguration(locations={"file:src/main/webapp/WEB-INF/spring/root-context.xml"})
+@ContextConfiguration(locations = { "file:src/main/webapp/WEB-INF/spring/root-context.xml" })
 public class StoreControllerTest {
 
-WebApplicationContext ctx;
-    
-    MockMvc mockMvc;
-    
-    @Before // junit의 before 모든 테스트 시작하기 전에 가짜 리퀘스트를 만들것이다.
-    public void setup() {
+	WebApplicationContext ctx;
 
-        mockMvc = MockMvcBuilders.webAppContextSetup(ctx).build();
+	MockMvc mockMvc;
 
-    }
-    
-    @Test
-    public void testList()throws Exception {
+	@Before // junit의 before 모든 테스트 시작하기 전에 가짜 리퀘스트를 만들것이다.
+	public void setup() {
 
-        Map<String, Object> map = mockMvc.perform(get("/store/list")).andReturn().getModelAndView().getModel();
-        System.out.println(map.get("cri"));
-        System.out.println(map.get("list"));
-    }
-	
-	
+		mockMvc = MockMvcBuilders.webAppContextSetup(ctx).build();
+
+	}
+
+	@Test
+	public void testList() throws Exception {
+
+		Map<String, Object> map = mockMvc.perform(get("/store/list")).andReturn().getModelAndView().getModel();
+		System.out.println(map.get("cri"));
+		System.out.println(map.get("list"));
+	}
+
 }
