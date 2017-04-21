@@ -4,7 +4,13 @@ import java.sql.Timestamp;
 
 public class StoreVO {
 	
-	private int sno;
+	private int sno, score;
+	public int getScore() {
+		return score;
+	}
+	public void setScore(int score) {
+		this.score = score;
+	}
 	private String sname;
 	private double lat, lng;
 	private String info, gubun;
@@ -60,8 +66,8 @@ public class StoreVO {
 	}
 	@Override
 	public String toString() {
-		return "StoreVO [sno=" + sno + ", sname=" + sname + ", lat=" + lat + ", lng=" + lng + ", info=" + info
-				+ ", gubun=" + gubun + ", regdate=" + regdate + ", updatedate=" + updatedate + "]";
+		return "StoreVO [sno=" + sno + ", score=" + score + ", sname=" + sname + ", lat=" + lat + ", lng=" + lng
+				+ ", info=" + info + ", gubun=" + gubun + ", regdate=" + regdate + ", updatedate=" + updatedate + "]";
 	}
 	
 	

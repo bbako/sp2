@@ -57,4 +57,9 @@ public class StoreDAOImpl implements StoreDAO {
 		return session.selectList(namespace+".list",cri);
 	}
 
+	@Override
+	public int listCount(Criteria cri) {
+		return session.selectOne(namespace+".listCount",cri);
+	}
+
 }

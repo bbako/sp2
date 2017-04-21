@@ -28,16 +28,15 @@ public class StoreController {
 	@GetMapping("/list")
 	public void list(@ModelAttribute("cri") Criteria cri, Model model) throws Exception{
 		
-		
 		logger.info(cri);
 		
 		List<StoreVO> list = service.getList(cri);
 		
 		logger.info(list);
+		
 		model.addAttribute("list",list);
-		model.addAttribute("pageMaker", new PageMaker(cri, 123));
+		
+		model.addAttribute("pageMaker", new PageMaker(cri, service.getCount(cri)));
 	}
-	
-	
 	
 }

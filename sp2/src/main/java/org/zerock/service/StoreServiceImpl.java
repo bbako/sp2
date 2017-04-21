@@ -40,8 +40,12 @@ public class StoreServiceImpl implements StoreService {
 
 	@Override
 	public List<StoreVO> getList(Criteria cri) throws Exception {
-		// TODO Auto-generated method stub
 		return dao.list(cri);
+	}
+
+	@Override
+	public int getCount(Criteria cri) throws Exception {
+		return dao.listCount(cri);
 	}
 
 }

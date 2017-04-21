@@ -18,4 +18,6 @@ public interface StoreDAO {
 	public String getTime();
 	
 	public List<StoreVO> list(Criteria cri) ;
+	
+	public int listCount(Criteria cri);
 }

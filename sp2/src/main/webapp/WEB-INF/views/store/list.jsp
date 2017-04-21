@@ -505,62 +505,91 @@
 				</ol>
 			</section>
 
-			 <section class="content">
-      <!-- Small boxes (Stat box) -->
-      <div class="col-md-12">
-          <div class="box">
-            <div class="box-header with-border">
-              <h3 class="box-title">Bordered Table</h3>
-            </div>
-            <!-- /.box-header -->
-            <div class="box-body">
-              <table class="table table-bordered">
-                <tbody><tr>
-                  <th style="width: 10px">#</th>
-                  <th>Title</th>
-                  <th>RegDate</th>
-                  <th style="width: 40px">Label</th>
-                </tr>
-                <c:forEach var="store" items="${list}"> 
-                <tr>
-                  <td>${store.sno}</td>
-                  <td><a class='sview' href='${store.sno}'>${store.sname}</a></td>
-                  <td>${store.regdate}</td>
-                  <td>${store.updatedate}</td>
-                  
-               
-                  <td>
-                    <div class="progress progress-xs">
-                      <div class="progress-bar progress-bar-danger" style="width: 55%"></div>
-                    </div>
-                  </td>
-                  <td><span class="badge bg-red">55%</span></td>
-                </tr>
-                </c:forEach>
-              </tbody></table>
-            </div>
-            <!-- /.box-body -->
-            <div class="box-footer clearfix">
-            <h2>${pageMaker}</h2>
-              <ul class="pagination pagination-sm no-margin pull-right">
-              <c:if test="${pageMaker.prev}">
-                <li><a href="${pageMaker.start-1}">«</a></li>
-                </c:if>
-                <c:forEach begin="${pageMaker.start}" end="${pageMaker.end}" var="idx">
-                <li class='${idx == pageMaker.current?"active":"" }'><a href="${idx}">${idx}</a></li>
-               </c:forEach>
-               <c:if test="${pageMaker.next}">
-                <li><a href="${pageMaker.end +1 }">»</a></li>
-                </c:if>
-              </ul>
-            </div>
-          </div>
-          <!-- /.box -->
+			<section class="content">
 
-          
-          <!-- /.box -->
-        </div>
 
+
+
+				<!-- Small boxes (Stat box) -->
+				<div class="col-md-12">
+					<div class="box">
+						<div class="box-header with-border">
+							<h3 class="box-title">Bordered Table</h3>
+						</div>
+						<!-- /.box-header -->
+						<div class="box-body">
+							<table class="table table-bordered">
+								<tbody>
+									<tr>
+										<th style="width: 10px">#</th>
+										<th style="width: 100px">Title</th>
+										<th style="width: 300px">Info</th>
+										<th style="width: 100px">RegDate</th>
+										<th style="width: 100px">UpDateDate</th>
+										<th style="width: 150px">score</th>
+									</tr>
+									<c:forEach var="store" items="${list}">
+										<tr>
+											<td>${store.sno}</td>
+											<td><a class='sview' href='${store.sno}'>${store.sname}</a></td>
+											<td>${store.info}</td>
+											<td>${store.regdate}</td>
+											<td>${store.updatedate}</td>
+
+
+											<td>
+												<div class="progress progress-xs">
+													<div class="progress-bar progress-bar-danger"
+														style="width: ${store.score}%"></div>
+												</div>
+											</td>
+											<td><span class="badge bg-red">${store.score}</span></td>
+										</tr>
+									</c:forEach>
+								</tbody>
+							</table>
+						</div>
+						<!-- /.box-body -->
+						<div class="box-footer clearfix">
+							<form id="f1" action="/store/list" method="get">
+								<input type='hidden' id='hpage' name='page' value="${pageMaker.current}"> 
+								<input type='hidden' id='hsno' name='sno'>
+								<div>
+									<select name='type'>
+										<option value='x' ${cri.type eq 'x'? "selected":""}>--------</option>
+										<option value='n' ${cri.type eq 'n'? "selected":""}>Sname</option>
+										<option value='c' ${cri.type eq 'c'? "selected":""}>Info</option>
+										<option value='nc'${cri.type eq 'nc'? "selected":""}>Sname+Info</option>
+							</select> 
+									<input type='text' name="keyword" value="${cri.keyword}">
+									<button id='searchBtn'>Search</button>
+								</div>
+							</form>
+
+
+
+
+
+							<ul class="pagination pagination-sm no-margin pull-right">
+								<c:if test="${pageMaker.prev}">
+									<li><a href="${pageMaker.start-1}">«</a></li>
+								</c:if>
+								<c:forEach begin="${pageMaker.start}" end="${pageMaker.end}"
+									var="idx">
+									<li class='${idx == pageMaker.current?"active":"" }'><a
+										href="${idx}">${idx}</a></li>
+								</c:forEach>
+								<c:if test="${pageMaker.next}">
+									<li><a href="${pageMaker.end +1 }">»</a></li>
+								</c:if>
+							</ul>
+						</div>
+					</div>
+					<!-- /.box -->
+
+
+					<!-- /.box -->
+				</div>
 		</div>
 		<!-- /.content-wrapper -->
 		<footer class="main-footer">
@@ -748,11 +777,8 @@
 		<div class="control-sidebar-bg"></div>
 	</div>
 	<!-- ./wrapper -->
-	
-<form id="f1" action="/store/list" method="get">
-<input type='hidden' id='hpage' name='page' value="${pageMaker.current}">
-<input type='hidden' id='hsno' name='sno'>
-</form>
+
+
 
 	<!-- jQuery 2.2.3 -->
 	<script src="plugins/jQuery/jquery-2.2.3.min.js"></script>
@@ -786,35 +812,43 @@
 	<script src="plugins/fastclick/fastclick.js"></script>
 	<!-- AdminLTE App -->
 	<script src="dist/js/app.min.js"></script>
-	
+
 	<!-- AdminLTE for demo purposes -->
 	<script src="dist/js/demo.js"></script>
-	
-	
+
+
 	<script>
-	
 		$(document).ready(function() {
-		
-		console.log("AAAAAAAAAAAAAAAAAA");
-		$(".sview").on("click", function(e) {
-			e.preventDefault();
-			$("#hsno").val($(this).attr("href"));
-			$("#f1").attr("action", "/store/view").submit();
 			
+			
+
+			console.log("AAAAAAAAAAAAAAAAAA");
+			
+			$('#searchBtn').click(function(e){
+				e.preventDefault();
+				
+				$('#hpage').val("1");
+						
+				$('#f1').submit();
+				
+			})
+			$(".sview").on("click", function(e) {
+				e.preventDefault();
+				$("#hsno").val($(this).attr("href"));
+				$("#f1").attr("action", "/store/view").submit();
+
+			});
+
+			$(".pagination li a").on("click", function(e) {
+
+				e.preventDefault();
+				var $this = $(this);
+				$("#hpage").val($this.attr("href"));
+				$("#f1").submit();
+
+			})
+
 		});
-		
-		
-		$(".pagination li a").on("click", function(e) {
-			
-			e.preventDefault();			
-			var $this = $(this);
-			$("#hpage").val($this.attr("href"));
-			$("#f1").submit();
-			
-		})
-		
-	});
-	
 	</script>
 </body>
 </html>
