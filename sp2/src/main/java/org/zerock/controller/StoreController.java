@@ -34,7 +34,6 @@ public class StoreController {
 		List<StoreVO> list = service.getList(cri);
 		
 		logger.info(list);
-		
 		model.addAttribute("list",list);
 		model.addAttribute("pageMaker", new PageMaker(cri, 123));
 	}

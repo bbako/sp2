@@ -38,6 +38,9 @@ public class StoreDAOTest {
 	
 	@Test
 	public void testList() throws Exception{
-		dao.list(new Criteria().settingPage(2).settingSize(5)).forEach(store->logger.info(store)); //builderpatern
+		Criteria cri = new Criteria();
+		cri.setType("c");
+		cri.setKeyword("33");
+		dao.list(cri).forEach(store->logger.info(store)); 
 	}
 }

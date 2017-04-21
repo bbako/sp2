@@ -15,7 +15,22 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</insert>
 	
 	<select id="list" parameterType="org.zerock.domain.Criteria" resultType="org.zerock.domain.StoreVO">
-		select * from tbl_store where sno>0 order by sno desc limit #{skip},#{amount}
+		select * from tbl_store where sno>0 
+		<if test="keyword !=null">
+		 <choose>
+    	
+    	<when test='type == "n"'>
+     	 AND 1=1
+    	</when>
+    	
+    	<when test='type == "c"'>
+     	 AND 2=2
+    	</when>
+  
+  	</choose>
+		</if>
+		
+		order by sno desc limit #{skip},#{amount}
 	</select> 
 
 </mapper>

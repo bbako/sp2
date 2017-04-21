@@ -793,7 +793,7 @@
 	
 	<script>
 	
-	$(document).ready(function() {
+		$(document).ready(function() {
 		
 		console.log("AAAAAAAAAAAAAAAAAA");
 		$(".sview").on("click", function(e) {
@@ -802,10 +802,11 @@
 			$("#f1").attr("action", "/store/view").submit();
 			
 		});
+		
+		
 		$(".pagination li a").on("click", function(e) {
 			
-			e.preventDefault();
-			
+			e.preventDefault();			
 			var $this = $(this);
 			$("#hpage").val($this.attr("href"));
 			$("#f1").submit();
