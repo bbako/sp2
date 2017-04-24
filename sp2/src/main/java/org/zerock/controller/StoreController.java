@@ -39,4 +39,9 @@ public class StoreController {
 		model.addAttribute("pageMaker", new PageMaker(cri, service.getCount(cri)));
 	}
 	
+	@GetMapping("/view")
+	public void view(){
+		
+	}
+	
 }
