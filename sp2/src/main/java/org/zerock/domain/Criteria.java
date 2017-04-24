@@ -1,6 +1,6 @@
 package org.zerock.domain;
 
-
+import java.util.Arrays;
 
 public class Criteria {//검색기준
 	
@@ -8,8 +8,34 @@ public class Criteria {//검색기준
 	private int page;
 	private int size;
 	private String type, keyword;
+	private String[] types;
 	
 	
+	
+	public String[] getTypes() {
+		return types;
+	}
+
+	public void setTypes(String[] types) {
+		this.types = types;
+	}
+
+	public String getType() {
+		return type;
+	}
+
+	public void setType(String type) {
+		this.type = type;
+	}
+
+	public String getKeyword() {
+		return keyword;
+	}
+
+	public void setKeyword(String keyword) {
+		this.keyword = keyword;
+	}
+
 	public Criteria(){
 		this.page = 1;
 		this.size = 10;
@@ -36,24 +62,7 @@ public class Criteria {//검색기준
 	public int getAmount(){
 		return this.size;
 	}
-	
-	
 
-	public String getType() {
-		return type;
-	}
-
-	public void setType(String type) {
-		this.type = type;
-	}
-
-	public String getKeyword() {
-		return keyword;
-	}
-
-	public void setKeyword(String keyword) {
-		this.keyword = keyword;
-	}
 
 	public int getPage() {
 		return page;
@@ -73,9 +82,9 @@ public class Criteria {//검색기준
 
 	@Override
 	public String toString() {
-		return "Criteria [page=" + page + ", size=" + size + ", type=" + type + ", keyword=" + keyword + "]";
+		return "Criteria [page=" + page + ", size=" + size + ", type=" + type + ", keyword=" + keyword + ", types="
+				+ Arrays.toString(types) + "]";
 	}
-
 	
 
 

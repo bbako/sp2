@@ -5,6 +5,12 @@ import java.sql.Timestamp;
 public class StoreVO {
 	
 	private int sno, score;
+	public int getScore() {
+		return score;
+	}
+	public void setScore(int score) {
+		this.score = score;
+	}
 	private String sname;
 	private double lat, lng;
 	private String info, gubun;
@@ -15,12 +21,6 @@ public class StoreVO {
 	}
 	public void setSno(int sno) {
 		this.sno = sno;
-	}
-	public int getScore() {
-		return score;
-	}
-	public void setScore(int score) {
-		this.score = score;
 	}
 	public String getSname() {
 		return sname;

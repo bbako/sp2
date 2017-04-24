@@ -5,8 +5,9 @@ import java.util.List;
 
 import javax.inject.Inject;
 
-import org.mybatis.spring.SqlSessionTemplate;
+import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
+import org.springframework.stereotype.Service;
 import org.zerock.domain.Criteria;
 import org.zerock.domain.StoreVO;
 @Repository
@@ -19,7 +20,7 @@ public class StoreDAOImpl implements StoreDAO {
 	static final String namespace="org.zerock.persistence.StoreDAO";
 	
 	@Inject
-	SqlSessionTemplate session;
+	SqlSession session;
 	
 	
 	@Override

@@ -22,7 +22,6 @@ public class StoreController {
 	//리턴타입 주지않기위해 void로 작성한다.
 	
 	private static final Logger logger = Logger.getLogger(StoreService.class);
-	
 	@Autowired
 	StoreService service;
 	

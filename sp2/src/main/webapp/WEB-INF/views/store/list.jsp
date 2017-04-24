@@ -552,16 +552,16 @@
 						<!-- /.box-body -->
 						<div class="box-footer clearfix">
 							<form id="f1" action="/store/list" method="get">
-								<input type='hidden' id='hpage' name='page' value="${pageMaker.current}"> 
-								<input type='hidden' id='hsno' name='sno'>
+								<input type='hidden' id='hpage' name='page'
+									value="${pageMaker.current}"> <input type='hidden'
+									id='hsno' name='sno'>
 								<div>
 									<select name='type'>
 										<option value='x' ${cri.type eq 'x'? "selected":""}>--------</option>
 										<option value='n' ${cri.type eq 'n'? "selected":""}>Sname</option>
 										<option value='c' ${cri.type eq 'c'? "selected":""}>Info</option>
-										<option value='nc'${cri.type eq 'nc'? "selected":""}>Sname+Info</option>
-							</select> 
-									<input type='text' name="keyword" value="${cri.keyword}">
+										<option value='nc' ${cri.type eq 'nc'? "selected":""}>Sname+Info</option>
+									</select> <input type='text' name="keyword" value="${cri.keyword}">
 									<button id='searchBtn'>Search</button>
 								</div>
 							</form>
@@ -819,18 +819,16 @@
 
 	<script>
 		$(document).ready(function() {
-			
-			
 
 			console.log("AAAAAAAAAAAAAAAAAA");
-			
-			$('#searchBtn').click(function(e){
+
+			$('#searchBtn').click(function(e) {
 				e.preventDefault();
-				
+
 				$('#hpage').val("1");
-						
+
 				$('#f1').submit();
-				
+
 			})
 			$(".sview").on("click", function(e) {
 				e.preventDefault();
