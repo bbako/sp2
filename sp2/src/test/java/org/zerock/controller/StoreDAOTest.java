@@ -39,8 +39,7 @@ public class StoreDAOTest {
 	@Test
 	public void testList() throws Exception{
 		Criteria cri = new Criteria();
-//		cri.setType("n");
-		cri.setTypes(new String[]{"n","c"});
+		cri.setType("n");
 		
 		cri.setKeyword("33");
 		dao.list(cri).forEach(store->logger.info(store)); 
