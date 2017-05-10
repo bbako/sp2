@@ -58,7 +58,16 @@ public class Criteria {//검색기준
 	public void setKeyword(String keyword) {
 		this.keyword = keyword;
 	}
-
+	
+	
+	public int getSkip(){
+	return (this.page-1)*this.size;
+	}
+	
+	public int getAmount(){
+	return this.size;
+	}
+	
 	@Override
 	public String toString() {
 		return "Criteria [page=" + page + ", size=" + size + ", type=" + type + ", keyword=" + keyword + "]";
